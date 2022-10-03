@@ -1,0 +1,29 @@
+class Solution {
+public:
+    void helper(vector<int>& candidates, int target, int sumtillnow, vector<int>&subset, vector<vector<int>>&ans, int i)
+    {
+        if(sumtillnow==target)
+        {
+            ans.push_back(subset);
+            return;
+        }
+        if(sumtillnow>target) return;
+        if(i>=candidates.size()) return;
+        helper(candidates, target, sumtillnow, subset, ans, i+1);
+        //pick
+        sumtillnow+=candidates[i];
+        subset.push_back(candidates[i]);
+        helper(candidates, target, sumtillnow, subset, ans, i);
+        sumtillnow-=candidates[i];
+        subset.pop_back();
+
+    }
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        vector<int>subset;
+        vector<vector<int>>ans;
+        int sumtillnow=0;
+        sort(candidates.begin(), candidates.end());
+        helper(candidates, target, sumtillnow, subset, ans, 0);
+        return ans;
+    }
+};
