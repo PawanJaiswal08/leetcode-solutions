@@ -1,0 +1,125 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct list{
+    int key;
+    struct list *next;
+};
+struct list *head,*tail=NULL;
+void add_node(int key){
+    struct list *newnode=(struct list*)malloc(sizeof(struct list));
+    newnode->key=key;
+    newnode->next=NULL;
+    if(head==NULL){
+        head=newnode;
+        tail=newnode;
+    }
+    else{
+        tail->next=newnode;
+        tail=newnode;
+    }
+}
+void add_node_beg(int key){
+    struct list *newnode=(struct list*)malloc(sizeof(struct list));
+    newnode->key=key;
+    newnode->next=head;
+    head=newnode;
+}
+void add_node_end(int key){
+    struct list *newnode=(struct list*)malloc(sizeof(struct list));
+    newnode->key=key;
+    newnode->next=NULL;
+    tail=newnode;
+}
+void add_node_mid(int key,int index){
+    struct list *newnode=(struct list*)malloc(sizeof(struct list));
+    newnode->key=key;
+    newnode->next=NULL;
+    if(head==NULL){
+        head=newnode;
+        tail=newnode;
+    }
+    else{
+        struct list *temp,*current;
+        temp=head;
+        current=NULL;
+        for(int i=0;i<index;i++){
+            current=temp;
+            temp=temp->next;
+        }
+        current->next=newnode;
+        newnode->next=temp;
+    }
+}
+void delete_beg(){
+    if(head==NULL){
+        printf("\nList is empty");
+    }
+    else{
+        struct list *temp;
+        temp=head;
+        head=head->next;
+        free(temp);
+    }
+}
+void delete_mid(int index){
+    if(head==NULL){
+        printf("\nList is empty");
+    }
+    else{
+        struct list *temp,*current;
+        temp=head;
+        current=NULL;
+        for(int i=0;i<index;i++){
+            temp=temp->next;
+            
+        }
+        current=temp->next;
+        temp->next=current->next;
+        free(current);
+    }
+}
+void isempty(){
+    if(head==NULL){
+        printf("\nList is empty");
+    }
+    else{
+        printf("\nList is not empty");
+    }
+}
+void lastpos(){
+    printf("\nLast value of the list is:\n");
+    printf("%d\n",tail->key);
+}
+void display(){
+    struct list *current = head;
+    if(head==NULL){
+        printf("List is empty\n");
+        return;
+    }
+    printf("Nodes of singly linked list:\n");
+    while(current!=NULL){
+        printf("%d\n",current->key);
+        current=current->next;
+    }
+}
+
+int main(){
+    add_node(1);
+    add_node(2);
+    add_node(3);
+    add_node(4); 
+    display();
+    isempty();
+    lastpos();
+    add_node_beg(0);
+    display();
+    add_node_end(5);
+    display();
+    add_node_mid(7,3);
+    display();
+    delete_beg();
+    display();
+    delete_mid(4);
+    display();
+    return 0;
+}
