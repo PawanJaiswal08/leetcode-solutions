@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+     bool digitCount(string num) {
+    map<int,int>m;int j=0;
+    //to count digit count in num
+     for(int i=0;i<num.size();i++){
+         j=num[i]-'0';
+         m[j]++;
+     }
+for(int i=0;i<num.size();i++){
+         j=num[i]-'0';
+         if(m[i]!=j)
+         return false;
+     }
+     return true;
+    }
+    //main function
+int main(){
+    string f;
+    getline(cin,f);
+    //call the function 
+   cout<<digitCount(f);
+   return 0;
+}
