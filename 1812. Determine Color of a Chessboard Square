@@ -1,0 +1,25 @@
+class Solution {
+    public boolean squareIsWhite(String coordinates) {
+        char[] xyCoordinate = coordinates.toCharArray();
+        if((xyCoordinate[0]-'a')%2 ==0)
+        {
+            if(xyCoordinate[1]%2==0)
+            {
+                return true;
+            }else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            if(xyCoordinate[1]%2==1)
+            {
+                return true;
+            }else
+            {
+                return false;
+            }
+        }
+    }
+}
