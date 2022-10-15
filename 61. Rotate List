@@ -17,10 +17,10 @@ public:
         while(head == NULL || head -> next == NULL || k==0)
             return head;
         while(curr -> next != NULL)
-        {
-            len++;
+        {        
+             len++;
             curr = curr -> next;
-        }
+              }
         curr -> next = head;
         k = k % len;
         k = len - k;
