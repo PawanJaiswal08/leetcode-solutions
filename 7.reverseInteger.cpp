@@ -13,9 +13,9 @@ public:
                 num = num + (x % 10);
                 x = x / 10;
             }
-        }
+                      }
         else{
-            x = -1 * x;
+                x = -1 * x;
             while(x > 0){
                 num = num * 10;
                 if( num >= 2147483647 || num <= -2147483648)
