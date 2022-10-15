@@ -5,7 +5,7 @@ int nthUglyNumber(int n) {
     int p2=0,p3=0,p5=0;
     a[0]=1;
     
-    for(int i=1;i<n;i++){
+    for(int i=1;i<n;i++) {
         
         a[i]=min({a[p2]*2,a[p3]*3,a[p5]*5});
         //jo minimum hai usko le rahe hai
