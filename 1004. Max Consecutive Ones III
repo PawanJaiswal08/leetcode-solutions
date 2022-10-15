@@ -1,0 +1,22 @@
+Link: https://leetcode.com/problems/max-consecutive-ones-iii/
+
+//JAVA Solution
+//O(n) Optimize
+class Solution {
+    public int longestOnes(int[] nums, int k) {
+        int ws = 0 , max = 0 , count = 0;
+        HashMap<Integer,Integer> hm = new HashMap<>();
+        for(int we = 0 ; we < nums.length ; we++){
+            // if(nums[we] == 0) count++;
+            if(nums[we]==0) hm.put(nums[we],hm.getOrDefault(nums[we],0)+1);
+            while(nums[we]==0 && hm.get(nums[we]) > k){
+                if(nums[ws] == 0){
+                    hm.put(nums[ws],hm.get(nums[ws])-1);
+                }
+                ws++;
+            }
+                max=Math.max(max,we-ws+1);
+            }
+        return max;
+   }
+}
