@@ -13,7 +13,7 @@ public:
                 num = num + (x % 10);
                 x = x / 10;
             }
-                      }
+                    }
         else{
                 x = -1 * x;
             while(x > 0){
