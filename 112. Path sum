@@ -10,10 +10,10 @@ if(root == null) return false;
         currSum += root.val;
         if(targetSum == currSum) {
             return true;
-        }
+           }
         else{
             return false;
-        }
+            }
     }
     
     
