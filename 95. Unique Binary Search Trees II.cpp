@@ -13,7 +13,7 @@ class Solution
 {
 public:
     // Copied solution
-    vector<TreeNode *> generateTrees(int n, int s = 1)
+    vector<TreeNode *>   generateTrees(int n, int s = 1)
     {
         vector<TreeNode *> ans;
         if (n < s)
