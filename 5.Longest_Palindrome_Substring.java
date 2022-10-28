@@ -5,7 +5,7 @@ public class Solution {
             // aba
             int len1 = expandAroundCenter(s, i, i);
             // bb
-            int len2 = expandAroundCenter(s, i, i + 1);
+            int len2 =expandAroundCenter(s, i, i + 1);
             int len = Math.max(len1, len2);
             if (len > end - start) {
                 start = i - (len - 1) / 2;
