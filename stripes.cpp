@@ -23,7 +23,7 @@ int main()
     cin >> t;
     while (t--)
     {
-        int red = 0, ak = 0;
+        int   red = 0, ak = 0;
         string a[8];
         for (int i = 0; i < 8; i++)
         {
